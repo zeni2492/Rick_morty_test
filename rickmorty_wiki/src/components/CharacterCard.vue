@@ -1,37 +1,42 @@
 <template>
 
-    <main class="Card">
-      <div class="image">
-        <img class="CharacterImage" :src="cartoon.image">
-      </div>
-      <aside>
-        <ul class="CharacterInfoList">
-          <li><span ><h1 class="CharacterName" >{{ cartoon.name }}</h1></span></li>
-          <li><span><span class="CharacterStatus"><span class="indicator" :class="{'IfAlive': cartoon.status === 'Alive', 'IfDead': cartoon.status === 'Dead', 'IfUnknown': cartoon.status === 'unknown'}">•</span> {{ cartoon.status }} - {{ cartoon.species }}</span> </span></li>
-          <li>
-            <div class="InfoTooltip"> known location</div>
-            <span class="CharacterInfo">{{ cartoon.location.name }}</span></li>
-          <li>
-            <div class="InfoTooltip"> seen in</div>
-            <span class="CharacterInfo">  {{ cartoon.origin.name }}</span>
-          </li>
-        </ul>
-      </aside>
-    </main>
+  <main class="Card">
+    <div class="image">
+      <img class="CharacterImage" :src="cartoon.image">
+    </div>
+    <aside>
+      <ul class="CharacterInfoList">
+        <li><span>
+            <h1 class="CharacterName">{{ cartoon.name }}</h1>
+          </span></li>
+        <li><span><span class="CharacterStatus"><span class="indicator"
+                :class="{ 'IfAlive': cartoon.status === 'Alive', 'IfDead': cartoon.status === 'Dead', 'IfUnknown': cartoon.status === 'unknown' }">•</span>
+              {{ cartoon.status }} - {{ cartoon.species }}</span> </span></li>
+        <li>
+          <div class="InfoTooltip"> known location</div>
+          <span class="CharacterInfo">{{ cartoon.location.name }}</span>
+        </li>
+        <li>
+          <div class="InfoTooltip"> seen in</div>
+          <span class="CharacterInfo"> {{ cartoon.origin.name }}</span>
+        </li>
+      </ul>
+    </aside>
+  </main>
 
 </template>
 
 <script setup>
-import {defineProps } from 'vue';
+import { defineProps } from 'vue';
 defineProps({
   cartoon: Object
 })
 </script>
 
 <style scoped>
-
 .Card {
-  width: 700px; /* Adjust the width based on your layout */
+  width: 700px;
+  /* Adjust the width based on your layout */
   height: 220px;
   border-radius: 10px;
   display: flex;
@@ -42,8 +47,8 @@ defineProps({
   margin: 5px 5px;
 }
 
-.CharacterImage{
-  max-width:  190px;
+.CharacterImage {
+  max-width: 190px;
   height: 220px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -53,24 +58,25 @@ defineProps({
   width: 190px;
 }
 
-.CharacterInfoList{
+.CharacterInfoList {
   margin-left: 16px;
 }
 
 .CharacterInfoList li {
-  list-style-type: none; /* Убираем стандартные маркеры у всех элементов списка */
+  list-style-type: none;
+  /* Убираем стандартные маркеры у всех элементов списка */
   color: green;
   margin: 0;
   padding: 0;
 }
 
 
-.CharacterInfo{
+.CharacterInfo {
   color: white;
   font-size: 1.4rem;
 }
 
-.InfoTooltip{
+.InfoTooltip {
   color: rgba(0, 0, 0, 0.638);
   font-size: 1.2rem;
   margin-top: 12px;
@@ -81,12 +87,12 @@ defineProps({
   color: white;
 }
 
-.TopText{
+.TopText {
   display: flex;
   flex-direction: column;
 }
 
-.CharacterName{
+.CharacterName {
   font-size: 1.8rem;
   font-weight: 900;
   color: rgb(255, 255, 255)
@@ -96,15 +102,15 @@ defineProps({
   font-size: 30px;
 }
 
-.IfDead{
+.IfDead {
   color: red;
 }
 
-.IfAlive{
+.IfAlive {
   color: green;
 }
 
-.ifUnknown{
+.ifUnknown {
   color: white;
 }
 
@@ -115,27 +121,30 @@ defineProps({
 }
 
 @media screen and (max-width: 750px) {
-  .Card{
+  .Card {
     display: flex;
     flex-direction: column;
     width: 300px;
     height: auto;
   }
-  .CharacterImage{
-    max-width:  300px;
+
+  .CharacterImage {
+    max-width: 300px;
     width: 300px;
-    border-bottom-left-radius:0px;
+    border-bottom-left-radius: 0px;
     border-top-right-radius: 10px;
   }
 }
+
 @media screen and (max-width: 300px) {
-  .Card{
+  .Card {
     display: flex;
     flex-direction: column;
     width: 200px;
   }
-  .CharacterImage{
-    max-width:  200px;
+
+  .CharacterImage {
+    max-width: 200px;
     width: 200px;
   }
 }
